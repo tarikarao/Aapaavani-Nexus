@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aapaavani NEXUS — Intelligent WWT Engineering Platform</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ════ TOPNAV ════ -->
+<nav class="topnav">
+  <div class="brand" onclick="goHome()">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.8" stroke-linecap="round">
+        <path d="M12 2C7 2 3 8 3 13a9 9 0 0018 0c0-5-4-11-9-11z"/>
+        <path d="M12 22V13M9 16l3-3 3 3"/>
+      </svg>
+    </div>
+    <div class="brand-words"><div class="n1">Aapaavani</div><div class="n2">NEXUS · WWT Design Platform</div></div>
+  </div>
+  <div class="nav-tabs">
+    <div class="nt active" id="nt-home" onclick="goHome()">⬡ Home</div>
+    <div class="nt" id="nt-wizard" onclick="showWiz()">⚗ Design Wizard</div>
+    <div class="nt" id="nt-modules" onclick="showModules()">⊞ Unit Processes</div>
+  </div>
+  <div class="nav-right">
+    <div class="chip" id="top-chip"></div>
+    <div class="pill">S.I. Units · v3.0</div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════
+     HOME
+════════════════════════════════════ -->
+<div class="screen show" id="screen-home">
+<div class="home-hero">
+  <div class="hh-grid"></div><div class="hh-glow1"></div><div class="hh-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><div class="eyebrow-pulse"></div><span>Aapaavani NEXUS — M&E 5th Ed. · IWA · CPHEEO</span></div>
+    <div class="hero-h">From influent data<br>to <span class="hl">complete plant design</span></div>
+    <div class="hero-p">Enter feed parameters once. NEXUS applies rigorous kinetic models, generates fully-dimensioned 2D engineering drawings, checks against international standards, and produces design-ready documentation — all in your browser.</div>
+    <div class="hero-btns">
+      <button class="btn-hero amber" onclick="showWiz()">🚀 Start New Design</button>
+      <button class="btn-hero ghost" onclick="showModules()">⊞ All Unit Processes</button>
+    </div>
+    <div class="stats-strip">
+      <div class="ss-item"><div class="ss-v">18+</div><div class="ss-l">Design Modules</div></div>
+      <div class="ss-item"><div class="ss-v">M&E 5th</div><div class="ss-l">Reference Basis</div></div>
+      <div class="ss-item"><div class="ss-v">2D+3D</div><div class="ss-l">Drawing Types</div></div>
+      <div class="ss-item"><div class="ss-v">S.I.</div><div class="ss-l">Unit System</div></div>
+      <div class="ss-item"><div class="ss-v">IWA</div><div class="ss-l">Standards</div></div>
+    </div>
+    <div class="mod-grid">
+      <div class="mgc" onclick="gm('screen')"><div class="mgc-cat">Pretreatment</div><div class="mgc-icon">🔲</div><div class="mgc-name">Screening + Grit</div><div class="mgc-desc">Bar screen headloss (Kirschmer), horizontal grit chamber — Stokes settling</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('primary')"><div class="mgc-cat">Primary</div><div class="mgc-icon">⊙</div><div class="mgc-name">Primary Clarifier</div><div class="mgc-desc">SOR + HRT dual basis, weir loading, sludge production, circular 2D drawing</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('secondary')"><div class="mgc-cat">Secondary Biological</div><div class="mgc-icon">🧬</div><div class="mgc-name">ASP / CMAS / EAL</div><div class="mgc-desc">Full Monod kinetics, SRT design, nitrification, denitrification, EBPR, MLSS, O₂</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('mbr')"><div class="mgc-cat">Membrane</div><div class="mgc-icon">🔵</div><div class="mgc-name">MBR System</div><div class="mgc-desc">Flux vs temp (J=0.73T+7.25), membrane area, scouring, pre-anoxic zone</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('sbr')"><div class="mgc-cat">Batch</div><div class="mgc-icon">🔄</div><div class="mgc-name">SBR Design</div><div class="mgc-desc">Cycle sequencing for BOD + nitrif + pre/post anoxic denitrif configurations</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('mbbr')"><div class="mgc-cat">Biofilm</div><div class="mgc-icon">🟡</div><div class="mgc-name">MBBR System</div><div class="mgc-desc">SALR/SARR carrier sizing, nitrification kinetics, pre/post-anoxic denitrif</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('sec-clar')"><div class="mgc-cat">Clarification</div><div class="mgc-icon">⊛</div><div class="mgc-name">Secondary Clarifier</div><div class="mgc-desc">SOR + SLR dual basis, RAS/WAS, circular + rectangular, weir loading checks</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('uasb')"><div class="mgc-cat">Anaerobic</div><div class="mgc-icon">🌱</div><div class="mgc-name">UASB Reactor</div><div class="mgc-desc">Upflow vel + OLR dual basis, biogas, energy recovery (kWh), GSS design</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('daf')"><div class="mgc-cat">Flotation</div><div class="mgc-icon">💭</div><div class="mgc-name">DAF Unit</div><div class="mgc-desc">Air solubility polynomial, A/S ratio, hydraulic loading, air system design</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('trickling')"><div class="mgc-cat">Fixed Film</div><div class="mgc-icon">🏔️</div><div class="mgc-name">Trickling Filter</div><div class="mgc-desc">NRC formula, 1-stage and 2-stage, recirculation factor, BOD efficiency</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('digester')"><div class="mgc-cat">Solids</div><div class="mgc-icon">⚗️</div><div class="mgc-name">Anaerobic Digester</div><div class="mgc-desc">Sludge quantities, mesophilic completely-mixed digester, biogas production</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('mass-balance')"><div class="mgc-cat">Plant-Wide</div><div class="mgc-icon">⚖️</div><div class="mgc-name">Solids Mass Balance</div><div class="mgc-desc">Full plant TSS/VSS/BOD tracking across all unit operations</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('lagoon')"><div class="mgc-cat">Natural Systems</div><div class="mgc-icon">🏞️</div><div class="mgc-name">Lagoon Systems</div><div class="mgc-desc">Anaerobic, facultative and maturation ponds with evaporation estimation</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('metal')"><div class="mgc-cat">Industrial</div><div class="mgc-icon">⚗</div><div class="mgc-name">Metal Precipitation</div><div class="mgc-desc">Zn, Ni, Cr, Cu, Cd, Pb, Fe hydroxide precipitation — solubility vs pH</div><div class="mgc-tag">LIVE</div></div>
+      <div class="mgc" onclick="gm('tertiary')"><div class="mgc-cat">Tertiary</div><div class="mgc-icon">💎</div><div class="mgc-name">Tertiary + Disinfection</div><div class="mgc-desc">RSF, dual media, UF filtration; Cl₂, UV, ozone disinfection design</div><div class="mgc-tag">LIVE</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════
+     WIZARD
+════════════════════════════════════ -->
+<div class="screen" id="screen-wizard">
+<div class="two-panel">
+  <aside class="sidebar">
+    <div class="sb-logo"><div class="sb-logo-t">NEXUS Design Engine</div><div class="sb-logo-s">Project Wizard</div></div>
+    <div class="sb-sec">Setup Steps</div>
+    <div class="si active" id="wsb1" onclick="wz(1)"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 10-16 0"/></svg>Project Info<span class="si-badge new">1</span></div>
+    <div class="si" id="wsb2" onclick="wz(2)"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Feed Parameters<span class="si-badge new">2</span></div>
+    <div class="si" id="wsb3" onclick="wz(3)"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Discharge Targets<span class="si-badge new">3</span></div>
+    <div class="si" id="wsb4" onclick="wz(4)"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="8" width="20" height="8" rx="2"/></svg>System Type<span class="si-badge new">4</span></div>
+    <div class="si" id="wsb5" onclick="wz(5)"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Technology<span class="si-badge new">5</span></div>
+    <div class="sb-div"></div>
+    <div class="sb-sec">Quick Jump</div>
+    <div class="si" onclick="gm('screen')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>Screen + Grit<span class="si-badge live">Live</span></div>
+    <div class="si" onclick="gm('secondary')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Secondary Bio<span class="si-badge live">Live</span></div>
+    <div class="si" onclick="gm('uasb')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7l9-4 9 4"/></svg>UASB / Anaerobic<span class="si-badge live">Live</span></div>
+    <div class="sb-tech"><div class="sb-tech-label">Selected Technology</div><div class="sb-tech-val" id="sb-tech-v">—</div></div>
+    <div class="sb-prog"><div class="sb-prog-bar"><div class="sb-prog-fill" id="wiz-bar" style="width:20%"></div></div><div class="sb-prog-txt" id="wiz-pg-txt">Step 1 of 5</div></div>
+  </aside>
+  <div class="panel-main">
+    <!-- Steps nav -->
+    <div class="steps-nav">
+      <div class="sn-item active" id="sn1"><div class="sn-dot">1</div>Project Info</div>
+      <div class="sn-line" id="sl1"></div>
+      <div class="sn-item" id="sn2"><div class="sn-dot">2</div>Feed Params</div>
+      <div class="sn-line" id="sl2"></div>
+      <div class="sn-item" id="sn3"><div class="sn-dot">3</div>Targets</div>
+      <div class="sn-line" id="sl3"></div>
+      <div class="sn-item" id="sn4"><div class="sn-dot">4</div>System Type</div>
+      <div class="sn-line" id="sl4"></div>
+      <div class="sn-item" id="sn5"><div class="sn-dot">5</div>Technology</div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div id="ws1">
+      <div class="step-hero"><div class="step-hrow"><div class="step-num-box">1</div><div class="step-title">Project Information</div></div><div class="step-desc">Enter project details for drawing title blocks and design reports. These customise all output documentation.</div></div>
+      <div class="step-body">
+        <div class="card"><div class="card-hd"><div class="card-hd-t">🏗️ Project Identification</div></div><div class="card-body">
+          <div class="g3" style="margin-bottom:13px">
+            <div class="f"><label>Project Name</label><input id="p_name" value="Municipal WWT Plant — Phase I"><div class="h">Appears on drawings and reports</div></div>
+            <div class="f"><label>Client / Owner</label><input id="p_client" placeholder="Municipality or client name"></div>
+            <div class="f"><label>Project Location</label><input id="p_loc" placeholder="City, State, Country"></div>
+            <div class="f"><label>Design Engineer / Firm</label><input id="p_eng" placeholder="Engineer or consulting firm"></div>
+            <div class="f"><label>Project Reference No.</label><input id="p_no" placeholder="WWT-2026-001"></div>
+            <div class="f"><label>Design Horizon</label><select id="p_horizon"><option value="10">10 Years</option><option value="15">15 Years</option><option value="20" selected>20 Years (standard)</option><option value="25">25 Years</option><option value="30">30 Years</option></select></div>
+          </div>
+          <div class="g3">
+            <div class="f"><label>Wastewater Category</label><select id="p_type"><option value="domestic">Domestic / Municipal</option><option value="industrial">Industrial</option><option value="combined">Combined (Municipal+Industrial)</option><option value="agri">Agro-industrial</option></select></div>
+            <div class="f"><label>Design Code / Standard</label><select id="p_code"><option value="india">India — CPHEEO / CPCB Guidelines</option><option value="mande">Metcalf &amp; Eddy 5th Ed. (International)</option><option value="usa">USA — MOP 8 / WEF Standards</option><option value="eu">European EN Standards</option></select></div>
+            <div class="f"><label>Project Notes</label><input id="p_notes" placeholder="Special constraints, site conditions..."></div>
+          </div>
+        </div></div>
+        <div class="btn-row mt"><button class="btn btn-a" onclick="wz(2)">Continue → Feed Parameters ›</button></div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="ws2" style="display:none">
+      <div class="step-hero"><div class="step-hrow"><div class="step-num-box">2</div><div class="step-title">Influent Feed Parameters</div></div><div class="step-desc">Enter or estimate influent characteristics. NEXUS auto-populates all downstream modules. Use measured values; defaults are typical Indian domestic sewage.</div></div>
+      <div class="step-body">
+        <div class="alert al-a">💡 All values propagate globally. Every unit process uses these as inputs — you can override individual modules later.</div>
+        <div class="card"><div class="card-hd"><div class="card-hd-t">💧 Hydraulic Parameters</div><div class="card-hd-s">Flow rates and peaking factors</div></div><div class="card-body">
+          <div class="g4">
+            <div class="f"><label>Design Average Flow Q</label><div class="fuw"><input type="number" id="w_Q" value="5000"><div class="fu">m³/d</div></div><div class="h">Average daily design flow</div></div>
+            <div class="f"><label>Peak Hourly Factor</label><input type="number" id="w_PF" value="2.5" step="0.1"><div class="h">Qpeak = PF × Qavg | Domestic: 2.0–3.5</div></div>
+            <div class="f"><label>Peak Monthly Factor</label><input type="number" id="w_PMF" value="1.2" step="0.05"><div class="h">For sludge calcs | Typical 1.1–1.3</div></div>
+            <div class="f"><label>Infiltration Allowance</label><div class="fuw"><input type="number" id="w_inf" value="0"><div class="fu">m³/d</div></div><div class="h">Groundwater infiltration (if any)</div></div>
+          </div>
+        </div></div>
+        <div class="card"><div class="card-hd"><div class="card-hd-t">🧪 Organic Load Parameters</div><div class="card-hd-s">BOD₅, COD, TSS — primary characterisation per M&E 5th Ed.</div></div><div class="card-body">
+          <div class="g4">
+            <div class="f"><label>Influent BOD₅</label><div class="fuw"><input type="number" id="w_BOD" value="250"><div class="fu">mg/L</div></div><div class="h">5-day BOD | Domestic: 150–350</div></div>
+            <div class="f"><label>Soluble BOD (sBOD)</label><div class="fuw"><input type="number" id="w_sBOD" value="125"><div class="fu">mg/L</div></div><div class="h">Filtered BOD | ~50% of total</div></div>
+            <div class="f"><label>Influent COD</label><div class="fuw"><input type="number" id="w_COD" value="450"><div class="fu">mg/L</div></div><div class="h">Total COD | Domestic: 300–600</div></div>
+            <div class="f"><label>Soluble COD (sCOD)</label><div class="fuw"><input type="number" id="w_sCOD" value="200"><div class="fu">mg/L</div></div><div class="h">Filtered COD</div></div>
+            <div class="f"><label>rbCOD</label><div class="fuw"><input type="number" id="w_rbCOD" value="80"><div class="fu">mg/L</div></div><div class="h">Readily biodegradable | For EBPR, denitrif.</div></div>
+            <div class="f"><label>Influent TSS</label><div class="fuw"><input type="number" id="w_TSS" value="220"><div class="fu">mg/L</div></div><div class="h">Total susp. solids | Domestic: 150–300</div></div>
+            <div class="f"><label>Influent VSS</label><div class="fuw"><input type="number" id="w_VSS" value="185"><div class="fu">mg/L</div></div><div class="h">Volatile susp. solids | VSS/TSS ≈ 0.8</div></div>
+            <div class="f"><label>nbVSS (non-biodeg.)</label><div class="fuw"><input type="number" id="w_nbVSS" value="40"><div class="fu">mg/L</div></div><div class="h">Non-biodegradable VSS | For UASB</div></div>
+          </div>
+        </div></div>
+        <div class="card"><div class="card-hd"><div class="card-hd-t">🌿 Nutrient Parameters</div><div class="card-hd-s">Nitrogen, phosphorus, alkalinity</div></div><div class="card-body">
+          <div class="g4">
+            <div class="f"><label>Influent TKN</label><div class="fuw"><input type="number" id="w_TKN" value="40"><div class="fu">mg/L</div></div><div class="h">Total Kjeldahl N | Domestic: 25–60</div></div>
+            <div class="f"><label>Influent NH₄-N</label><div class="fuw"><input type="number" id="w_NH4" value="28"><div class="fu">mg/L</div></div><div class="h">Ammonia-N | ~70–80% of TKN</div></div>
+            <div class="f"><label>Influent NO₃-N (raw)</label><div class="fuw"><input type="number" id="w_NO3" value="1"><div class="fu">mg/L</div></div><div class="h">Usually negligible in raw sewage</div></div>
+            <div class="f"><label>Total Phosphorus TP</label><div class="fuw"><input type="number" id="w_TP" value="6"><div class="fu">mg/L</div></div><div class="h">Domestic: 4–12 mg/L</div></div>
+            <div class="f"><label>VFA (Acetate)</label><div class="fuw"><input type="number" id="w_VFA" value="15"><div class="fu">mg/L</div></div><div class="h">Volatile fatty acids | For EBPR</div></div>
+            <div class="f"><label>Alkalinity</label><div class="fuw"><input type="number" id="w_Alk" value="200"><div class="fu">mg/L CaCO₃</div></div><div class="h">Typical: 100–300</div></div>
+            <div class="f"><label>Influent pH</label><input type="number" id="w_pH" value="7.2" step="0.1"><div class="h">Typical: 6.5–8.0</div></div>
+            <div class="f"><label>TKN Peak/Avg Factor Fs</label><input type="number" id="w_TKNfs" value="1.5" step="0.1"><div class="h">For SRT safety factor | M&E: 1.3–1.8</div></div>
+          </div>
+        </div></div>
+        <div class="card"><div class="card-hd"><div class="card-hd-t">🌡️ Physical / Site Conditions</div></div><div class="card-body">
+          <div class="g4">
+            <div class="f"><label>Design Temp. (coldest month)</label><div class="fuw"><input type="number" id="w_T" value="20"><div class="fu">°C</div></div><div class="h">Critical for kinetics and O₂ transfer</div></div>
+            <div class="f"><label>Summer Max. Temp.</label><div class="fuw"><input type="number" id="w_Tmax" value="32"><div class="fu">°C</div></div><div class="h">For MBR flux correction</div></div>
+            <div class="f"><label>Site Elevation</label><div class="fuw"><input type="number" id="w_elev" value="100"><div class="fu">m asl</div></div><div class="h">For blower + O₂ transfer correction</div></div>
+            <div class="f"><label>Population (if known)</label><input type="number" id="w_PE" placeholder="Auto-calc"><div class="h">Auto-calc: Q ÷ 0.1 m³/cap/d</div></div>
+          </div>
+        </div></div>
+        <div class="btn-row mt"><button class="btn btn-o" onclick="wz(1)">‹ Back</button><button class="btn btn-a" onclick="wz(3)">Continue → Discharge Targets ›</button></div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="ws3" style="display:none">
+      <div class="step-hero"><div class="step-hrow"><div class="step-num-box">3</div><div class="step-title">Effluent Quality Targets &amp; Discharge Standard</div></div><div class="step-desc">Select a regulatory standard — NEXUS auto-fills all limits and recommends appropriate technology.</div></div>
+      <div class="step-body">
+        <div class="alert al-a">💡 Select a standard to auto-fill targets. You can override any value. Technology recommendation updates automatically based on stringency.</div>
+        <div class="card"><div class="card-hd"><div class="card-hd-t">📋 Quick-Select Discharge Standards</div></div><div class="card-body">
+          <div class="std-pills">
+            <div class="std-p on" id="sp-inland" onclick="setStd('inland')">🏞 IS 2490 — Inland Surface Water</div>
+            <div class="std-p" id="sp-land" onclick="setStd('land')">🌾 CPCB — Land Irrigation</div>
+            <div class="std-p" id="sp-reuse" onclick="setStd('reuse')">♻️ ZLD / Water Reuse</div>
+            <div class="std-p" id="sp-marine" onclick="setStd('marine')">🌊 Marine Discharge</div>
+            <div class="std-p" id="sp-mld" onclick="setStd('mld')">⚡ MLD / High Grade</div>
+            <div class="std-p" id="sp-custom" onclick="setStd('custom')">✏️ Custom</div>
+          </div>
+          <div class="g4">
+            <div class="f"><label>Effluent BOD₅</label><div class="fuw"><input type="number" id="w_BODe" value="10"><div class="fu">mg/L</div></div></div>
+            <div class="f"><label>Effluent COD</label><div class="fuw"><input type="number" id="w_CODe" value="50"><div class="fu">mg/L</div></div></div>
+            <div class="f"><label>Effluent TSS</label><div class="fuw"><input type="number" id="w_TSSe" value="10"><div class="fu">mg/L</div></div></div>
+            <div class="f"><label>Effluent NH₄-N</label><div class="fuw"><input type="number" id="w_NH4e" value="5"><div class="fu">mg/L</div></div></div>
+            <div class="f"><label>Effluent TN</label><div class="fuw"><input type="number" id="w_TNe" value="10"><div class="fu">mg/L</div></div></div>
+            <div class="f"><label>Effluent TP</label><div class="fuw"><input type="number" id="w_TPe" value="2"><div class="fu">mg/L</div></div></div>
+            <div class="f"><label>Effluent pH Range</label><input type="text" id="w_pHe" value="6.5–8.5"></div>
+            <div class="f"><label>Faecal Coliform</label><input type="text" id="w_FCe" value="&lt;1000 MPN/100mL"></div>
+          </div>
+        </div></div>
+        <div class="btn-row mt"><button class="btn btn-o" onclick="wz(2)">‹ Back</button><button class="btn btn-a" onclick="wz(4)">Continue → System Type ›</button></div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div id="ws4" style="display:none">
+      <div class="step-hero"><div class="step-hrow"><div class="step-num-box">4</div><div class="step-title">Treatment System Configuration</div></div><div class="step-desc">Choose whether to design a conventional multi-unit train or focus on a specific secondary treatment technology.</div></div>
+      <div class="step-body">
+        <div class="card"><div class="card-hd"><div class="card-hd-t">🏭 System Design Approach</div></div><div class="card-body">
+          <div class="sys-g">
+            <div class="sc on" id="sc-conv" onclick="selSys('conventional')"><div class="sc-icon">🏗️</div><div class="sc-name">Conventional Full Train</div><div class="sc-desc">Complete sequential design: Screening → Grit → Primary → Biological → Secondary Clarifier → Tertiary. Mass balance continuity across all units from single feed input.</div></div>
+            <div class="sc" id="sc-spec" onclick="selSys('specific')"><div class="sc-icon">⚙️</div><div class="sc-name">Specific Technology Focus</div><div class="sc-desc">Deep-dive into a specific secondary technology (MBR, SBR, MBBR, UASB+ASP, Trickling Filter) with full integration of required pre/post-treatment stages.</div></div>
+          </div>
+        </div></div>
+        <div class="btn-row mt"><button class="btn btn-o" onclick="wz(3)">‹ Back</button><button class="btn btn-a" onclick="wz(5)">Continue → Select Technology ›</button></div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div id="ws5" style="display:none">
+      <div class="step-hero"><div class="step-hrow"><div class="step-num-box">5</div><div class="step-title" id="s5-title">Select Secondary Treatment Technology</div></div><div class="step-desc" id="s5-desc">NEXUS recommends based on your effluent targets and plant scale. Click a card to select.</div></div>
+      <div class="step-body">
+        <div class="tech-grid" id="tech-grid"></div>
+        <div id="rec-box" class="alert al-g" style="display:none;margin-top:6px"></div>
+        <div class="btn-row mt">
+          <button class="btn btn-o" onclick="wz(4)">‹ Back</button>
+          <button class="btn btn-a" style="font-size:14px;padding:12px 28px" onclick="launchDesign()">🚀 Launch Full Design →</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- panel-main -->
+</div><!-- two-panel -->
+</div><!-- wizard -->
+
+<!-- ════════════════════════════════════
+     MODULES SCREEN
+════════════════════════════════════ -->
+<div class="screen" id="screen-modules">
+<div class="two-panel">
+  <aside class="sidebar">
+    <div class="sb-logo"><div class="sb-logo-t">Unit Process Library</div><div class="sb-logo-s">15 active modules</div></div>
+    <div class="sb-sec">Treatment Train</div>
+    <div class="si" id="msb-train" onclick="gm('train')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="8" width="20" height="8" rx="2"/></svg>Train Overview<span class="si-badge new">→</span></div>
+    <div class="sb-sec">Pretreatment</div>
+    <div class="si" id="msb-screen" onclick="gm('screen')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>Screening + Grit<span class="si-badge live">Live</span></div>
+    <div class="sb-sec">Primary</div>
+    <div class="si" id="msb-primary" onclick="gm('primary')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="9" ry="6"/><line x1="12" y1="6" x2="12" y2="18"/></svg>Primary Clarifier<span class="si-badge live">Live</span></div>
+    <div class="sb-sec">Secondary Biological</div>
+    <div class="si" id="msb-secondary" onclick="gm('secondary')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20M8 10v10M16 10v10"/></svg>ASP / CMAS / EAL<span class="si-badge live">Live</span></div>
+    <div class="si" id="msb-mbr" onclick="gm('mbr')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>MBR System<span class="si-badge live">Live</span></div>
+    <div class="si" id="msb-sbr" onclick="gm('sbr')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>SBR Design<span class="si-badge live">Live</span></div>
+    <div class="si" id="msb-mbbr" onclick="gm('mbbr')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4"/></svg>MBBR System<span class="si-badge live">Live</span></div>
+    <div class="si" id="msb-trickling" onclick="gm('trickling')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Trickling Filter<span class="si-badge live">Live</span></div>
+    <div class="sb-sec">Secondary Clarifier</div>
+    <div class="si" id="msb-sec-clar" onclick="gm('sec-clar')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18l-2 12H5L3 6z"/></svg>Secondary Clarifier<span class="si-badge live">Live</span></div>
+    <div class="sb-sec">Anaerobic / Industrial</div>
+    <div class="si" id="msb-uasb" onclick="gm('uasb')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7l9-4 9 4M3 17l9 4 9-4"/></svg>UASB Reactor<span class="si-badge live">Live</span></div>
+    <div class="si" id="msb-daf" onclick="gm('daf')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>DAF Unit<span class="si-badge live">Live</span></div>
+    <div class="sb-sec">Solids Handling</div>
+    <div class="si" id="msb-digester" onclick="gm('digester')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="18" rx="8" ry="3"/><path d="M4 18V9l8-6 8 6v9"/></svg>Anaerobic Digester<span class="si-badge live">Live</span></div>
+    <div class="si" id="msb-mass-balance" onclick="gm('mass-balance')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>Solids Mass Balance<span class="si-badge live">Live</span></div>
+    <div class="sb-sec">Natural / Tertiary</div>
+    <div class="si" id="msb-lagoon" onclick="gm('lagoon')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 7.5C21 9.985 16.971 12 12 12S3 9.985 3 7.5 7.029 3 12 3s9 2.015 9 4.5z"/></svg>Lagoon Systems<span class="si-badge live">Live</span></div>
+    <div class="si" id="msb-tertiary" onclick="gm('tertiary')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Tertiary+Disinfection<span class="si-badge live">Live</span></div>
+    <div class="si" id="msb-metal" onclick="gm('metal')"><svg class="si-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z"/></svg>Metal Precipitation<span class="si-badge live">Live</span></div>
+  </aside>
+
+  <div class="panel-main" id="mod-content">
+    <!-- modules rendered here -->
+  </div>
+</div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
